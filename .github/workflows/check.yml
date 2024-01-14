@@ -1,0 +1,55 @@
+name: Check
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+    check:
+        name: Check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v3
+
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8.11.0
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 'lts/*'
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build
+              run: pnpm run build
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v3
+
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8.11.0
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 'lts/*'
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build
+              run: pnpm run lint
