@@ -23,6 +23,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/better-sqlite3": "^7.6.8",
     "drizzle-kit": "^0.20.12",
     "prettier": "^3.2.2",
