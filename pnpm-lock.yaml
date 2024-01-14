@@ -52,6 +52,9 @@ devDependencies:
   prettier:
     specifier: ^3.2.2
     version: 3.2.2
+  prettier-config-standard:
+    specifier: ^7.0.0
+    version: 7.0.0(prettier@3.2.2)
   prettier-plugin-astro:
     specifier: ^0.12.3
     version: 0.12.3
@@ -3830,6 +3833,14 @@ packages:
       path-exists: 4.0.0
       which-pm: 2.0.0
     dev: false
+
+  /prettier-config-standard@7.0.0(prettier@3.2.2):
+    resolution: {integrity: sha512-NgZy4TYupJR6aMMuV/Aqs0ONnVhlFT8PXVkYRskxREq8EUhJHOddVfBxPV6fWpgcASpJSgvvhVLk0CBO5M3Hvw==}
+    peerDependencies:
+      prettier: ^2.6.0 || ^3.0.0
+    dependencies:
+      prettier: 3.2.2
+    dev: true
 
   /prettier-plugin-astro@0.12.3:
     resolution: {integrity: sha512-GthUSu3zCvmtVyqlArosez0xE08vSJ0R1sWurxIWpABaCkNGYFANoUdFkqmIo54EV2uPLGcVJzOucWvCjPBWvg==}
