@@ -3,12 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro",
-    "generate": "drizzle-kit generate:sqlite"
+    "build": "astro check && astro build",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "dev": "astro dev",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
