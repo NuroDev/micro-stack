@@ -4,6 +4,7 @@ import { db } from '~/database/client';
 import Comment from '~/components/Comment.astro';
 import CommentForm from '~/components/CommentForm.astro';
 import Document from '~/layouts/Document.astro';
+import Head from '~/components/Head.astro';
 
 if (Astro.request.method === 'POST') {
 	const data = await Astro.request.formData();
@@ -17,6 +18,8 @@ if (Astro.request.method === 'POST') {
 
 const cms = await db.query.comments.findMany();
 ---
+
+<Head title='Micro-stack' />
 
 <Document>
 	<main class='mx-auto my-8 max-w-2xl px-4'>
