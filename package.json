@@ -29,7 +29,8 @@
 		"sharp": "^0.33.1",
 		"tailwind-merge": "^2.2.0",
 		"tailwindcss": "^3.4.0",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"zod": "^3.22.4"
 	},
 	"devDependencies": {
 		"@total-typescript/ts-reset": "^0.5.1",
