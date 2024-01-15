@@ -1,4 +1,5 @@
 import type { InferSelectModel } from 'drizzle-orm';
-import { comments } from './schemas.ts';
+
+import type { comments } from '~/database/schemas';
 
 export type Comment = InferSelectModel<typeof comments>;
