@@ -1,5 +1,14 @@
+# ------------------------------------
+# Base image
+# ------------------------------------
 FROM node:lts AS base
+
 WORKDIR /app
+
+# Install pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
 # Install Litestream
 ENV LITESTREAM_VERSION="0.3.13"
@@ -19,21 +28,36 @@ RUN case "${TARGETARCH}" in \
     && dpkg -i litestream-v${LITESTREAM_VERSION}-linux-${ARCH}.deb \
     && rm litestream-v${LITESTREAM_VERSION}-linux-${ARCH}.deb
 
-COPY package.json package-lock.json ./
+# ------------------------------------
+# Install production dependencies
+# ------------------------------------
+FROM base AS prod-deps
 
+COPY package.json pnpm-lock.yaml ./
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+
+# ------------------------------------
+# Build the application
+# ------------------------------------
 FROM base AS build
-RUN npm ci
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 COPY . .
-RUN npm run build
 
+RUN pnpm run build
+
+# ------------------------------------
+# Start the application
+# ------------------------------------
 FROM base AS runtime
 
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 
 # Move the drizzle directory to the runtime image
-COPY --from=build /app/drizzle ./drizzle
+COPY --from=build /app/src/database/migrations/ /migrations
 
 # Move the run script and litestream config to the runtime image
 COPY --from=build /app/scripts/run.sh run.sh
@@ -43,7 +67,9 @@ COPY --from=build /app/litestream.yml /etc/litestream.yml
 RUN mkdir -p /data
 
 ENV HOST=0.0.0.0
-ENV PORT=4321
 ENV NODE_ENV=production
+ENV PORT=4321
+
 EXPOSE 4321
+
 CMD ["sh", "run.sh"]
