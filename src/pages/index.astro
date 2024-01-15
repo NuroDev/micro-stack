@@ -21,9 +21,29 @@ const cms = await db.query.comments.findMany();
 <Document>
 	<main class='mx-auto my-8 max-w-2xl px-4'>
 		<h1 class='mb-6 text-2xl font-bold text-gray-900'>Comments</h1>
+
+		<h2>Server-side rendered comments</h2>
 		<ul class='list-none space-y-4'>
 			{cms.map((comment) => <Comment comment={comment} />)}
 		</ul>
+
+		<h2>Client-side rendered comments</h2>
+		<ul class='list-none space-y-4' id='csr-comments'></ul>
+
+		<script>
+			import { hc } from 'hono/client';
+
+			import type { App } from '~/pages/api/hono/[...path]';
+
+			const client = hc<App>(window.location.origin);
+			const notesResponse = await client.api.hono.comments.$get();
+			const { comments } = await notesResponse.json();
+
+			const postsEl = document.getElementById('posts');
+			if (postsEl)
+				postsEl.innerHTML = comments.map((post) => `<li>${post.content}</li>`).join('');
+		</script>
+
 		<CommentForm />
 	</main>
 </Document>
