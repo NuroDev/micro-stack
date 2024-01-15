@@ -1,8 +1,10 @@
 ---
-import { type Comment } from '../models/types';
+import { type Comment } from '~/database/types';
+
 interface Props {
 	comment: Comment;
 }
+
 const { comment } = Astro.props;
 ---
 
@@ -14,4 +16,3 @@ const { comment } = Astro.props;
 		</footer>
 	</blockquote>
 </li>
-../database/types
