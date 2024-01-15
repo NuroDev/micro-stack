@@ -1,0 +1,8 @@
+/(.*)
+  Content-Security-Policy: default-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src 'self' cloudflareinsights.com; style-src 'self' 'unsafe-inline';
+  Permissions-Policy: interest-cohort=()
+  Referrer-Policy: origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-DNS-Prefetch-Control: on
+  X-Frame-Options: DENY
