@@ -41,9 +41,21 @@ const cms = await db.query.comments.findMany();
 			const notesResponse = await client.api.hono.comments.$get();
 			const { comments } = await notesResponse.json();
 
-			const postsEl = document.getElementById('posts');
-			if (postsEl)
-				postsEl.innerHTML = comments.map((post) => `<li>${post.content}</li>`).join('');
+			const csrCommentsEl = document.getElementById('csr-comments');
+			if (csrCommentsEl)
+				csrCommentsEl.innerHTML += comments
+					.map(
+						(comment) => `<li class='mb-4'>
+	<blockquote class='rounded border-l-4 border-gray-300 bg-gray-100 p-4'>
+		<p class='text-gray-800'>${comment.content}</p>
+		<footer class='mt-2'>
+			— <cite class='font-medium'>${comment.author}</cite>
+		</footer>
+	</blockquote>
+</li>
+`,
+					)
+					.join('');
 		</script>
 	</main>
 </Document>
