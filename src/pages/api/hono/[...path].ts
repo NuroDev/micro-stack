@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 
 import type { APIRoute } from 'astro';
-import { db } from '~/utils/db';
+import { db } from '~/database/client';
 
 const app = new Hono()
 	.basePath('/api/hono/')

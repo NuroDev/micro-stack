@@ -1,9 +1,9 @@
 ---
-import Document from '../layouts/Document.astro';
-import Comment from '../components/Comment.astro';
-import CommentForm from '../components/CommentForm.astro';
-import { db } from '../utils/db';
-import { comments } from '../models/schema';
+import { comments } from '~/database/schemas';
+import { db } from '~/database/client';
+import Comment from '~/components/Comment.astro';
+import CommentForm from '~/components/CommentForm.astro';
+import Document from '~/layouts/Document.astro';
 
 if (Astro.request.method === 'POST') {
 	const data = await Astro.request.formData();
@@ -21,6 +21,8 @@ const cms = await db.query.comments.findMany();
 <Document>
 	<main class='mx-auto my-8 max-w-2xl px-4'>
 		<h1 class='mb-6 text-2xl font-bold text-gray-900'>Comments</h1>
+
+		<CommentForm />
 
 		<h2>Server-side rendered comments</h2>
 		<ul class='list-none space-y-4'>
@@ -43,7 +45,5 @@ const cms = await db.query.comments.findMany();
 			if (postsEl)
 				postsEl.innerHTML = comments.map((post) => `<li>${post.content}</li>`).join('');
 		</script>
-
-		<CommentForm />
 	</main>
 </Document>
