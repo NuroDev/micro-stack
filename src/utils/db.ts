@@ -11,4 +11,5 @@ const sqlite = new SQLite(
 
 export const db = drizzle(sqlite, { schema });
 
-migrate(db, { migrationsFolder: './drizzle' });
+const { pathname: migrationsFolder } = new URL('../database/migrations', import.meta.url);
+migrate(db, { migrationsFolder });
