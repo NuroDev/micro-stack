@@ -1,12 +1,12 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./src/*"]
-    },
-    "strict": true,
-    "strictNullChecks": true,
-    "types": ["@total-typescript/ts-reset"]
-  }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		},
+		"strict": true,
+		"strictNullChecks": true,
+		"types": ["@total-typescript/ts-reset"]
+	}
 }
