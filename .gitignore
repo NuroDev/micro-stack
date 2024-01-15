@@ -134,3 +134,8 @@ dist
 
 # generated types
 .astro/
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
