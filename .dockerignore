@@ -27,4 +27,3 @@ litestream
 
 # Ignore .sqlite3 files
 *.sqlite3
-```
