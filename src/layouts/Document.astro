@@ -1,0 +1,16 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import '~/styles/global.css';
+---
+
+<!doctype html>
+<html class='scroll-smooth' lang='en'>
+	<head>
+		<ViewTransitions />
+		<slot name='head' />
+	</head>
+	<body class='bg-white font-sans text-gray-800 antialiased'>
+		<slot />
+	</body>
+</html>
