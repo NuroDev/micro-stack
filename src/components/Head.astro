@@ -1,0 +1,55 @@
+---
+interface Props {
+	description?: string;
+	image?: string;
+	title?: string;
+	type?: 'website';
+}
+
+const {
+	description = 'A simple & tiny stack for building web applications using Astro, SQLite & Litestream.',
+	image = '/og.png', // TODO: Add default opengraph image to `public/`
+	title = 'Micro-stack',
+	type = 'website',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<head slot='head'>
+	<link rel='canonical' href={canonicalURL} />
+
+	<title>{title}</title>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<meta name='title' content={title} />
+	<meta name='description' content={description} />
+
+	<link rel='icon' type='image/png' href='/favicon.png' />
+	<link
+		rel='icon'
+		type='image/png'
+		href='/favicon-dark.png'
+		media='(prefers-color-scheme: light)'
+	/>
+	<link
+		rel='icon'
+		type='image/png'
+		href='/favicon-light.png'
+		media='(prefers-color-scheme: dark)'
+	/>
+
+	<link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
+
+	<meta property='og:description' content={description} />
+	<meta property='og:image' content={image} />
+	<meta property='og:title' content={title} />
+	<meta property='og:type' content={type} />
+	<meta property='og:url' content={canonicalURL} />
+
+	<meta property='twitter:card' content='summary_large_image' />
+	<meta property='twitter:url' content={Astro.url} />
+	<meta property='twitter:title' content={title} />
+	<meta property='twitter:description' content={description} />
+	<meta property='twitter:image' content={image} />
+</head>
