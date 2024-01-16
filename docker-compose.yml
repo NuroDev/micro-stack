@@ -5,7 +5,12 @@ services:
         image: micro-stack:latest
         container_name: micro-stack
         restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile
         env_file:
             - .env
         ports:
             - 4321:4321
+        volumes:
+            - $PWD/_data:/data
