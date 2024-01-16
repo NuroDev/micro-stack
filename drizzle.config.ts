@@ -1,13 +1,10 @@
 import 'dotenv/config';
 
-import { name } from './package.json';
-
 import type { Config } from 'drizzle-kit';
 
 const defineConfig = <T extends Config>(config: T): T => config;
 
-const dbUrl =
-	process.env.NODE_ENV === 'production' ? `/data/${name}.production.db` : `./${name}.local.db`;
+const dbUrl = process.env.NODE_ENV === 'production' ? `/data/app.production.db` : `./app.local.db`;
 
 export default defineConfig({
 	dbCredentials: { url: dbUrl },

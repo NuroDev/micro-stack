@@ -2,7 +2,7 @@
 set -e
 
 # Set the directory of the database in a variable
-DB_PATH=/data/db.sqlite3
+DB_PATH=/data/app.production.db
 
 # Restore the database if it does not already exist.
 if [ -f $DB_PATH ]; then
