@@ -11,5 +11,3 @@ services:
             - .env
         ports:
             - 4321:4321
-        volumes:
-            - $PWD/_data:/data
