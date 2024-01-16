@@ -1,9 +1,14 @@
 # ------------------------------------
 # Base image
 # ------------------------------------
-FROM node:lts AS base
+FROM node:lts-slim AS base
 
 WORKDIR /app
+
+# Install wget / other common packages
+RUN apt-get update && apt-get install -y \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
 ENV PNPM_HOME="/pnpm"
