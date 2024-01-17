@@ -1,8 +1,8 @@
 ---
-import { type Comment } from '~/database/types';
+import type { SelectComment } from '~/database/types';
 
 interface Props {
-	comment: Comment;
+	comment: SelectComment;
 }
 
 const { comment } = Astro.props;
