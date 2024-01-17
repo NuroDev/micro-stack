@@ -2,7 +2,7 @@ name = "micro-stack"
 compatibility_date = "2024-01-17"
 
 d1_databases = [
-	{ binding = "DATABASE", database_name = "micro-stack-preview", database_id = "b640d966-d59d-43c0-82ec-5321e9a809e1", preview_database_id = "c496684e-d0f2-48e3-aad4-12601a5e606d" },
+	{ binding = "DATABASE", database_id = "b640d966-d59d-43c0-82ec-5321e9a809e1", preview_database_id = "c496684e-d0f2-48e3-aad4-12601a5e606d", migrations_table = "__drizzle_migrations", migrations_dir = "./src/database/migrations/" },
 ]
 
 [placement]
