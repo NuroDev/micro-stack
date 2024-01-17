@@ -2,6 +2,14 @@ import { text, sqliteTable, integer, primaryKey } from 'drizzle-orm/sqlite-core'
 
 import type { AdapterAccount } from '@auth/core/adapters';
 
+export type Schemas = {
+	accounts: typeof accounts;
+	comments: typeof comments;
+	sessions: typeof sessions;
+	users: typeof users;
+	verificationTokens: typeof verificationTokens;
+};
+
 export const accounts = sqliteTable(
 	'account',
 	{
