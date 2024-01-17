@@ -18,6 +18,11 @@ interface Bindings {
 
 type Runtime = import('@astrojs/cloudflare').AdvancedRuntime<Bindings>;
 
+type Schemas = import('~/database/schemas').Schemas;
+type DrizzleD1Database<T> = import('drizzle-orm/d1').DrizzleD1Database<T>;
+
 declare namespace App {
-	interface Locals extends Runtime {}
+	interface Locals extends Runtime {
+		drizzle: DrizzleD1Database<Schemas>;
+	}
 }
