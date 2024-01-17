@@ -6,11 +6,13 @@ const defineConfig = <T extends Config>(config: T): T => config;
 
 export default defineConfig({
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	darkMode: 'media',
 	plugins: [],
 	theme: {
 		extend: {
 			colors: {
 				primary: defaultColors.orange,
+				gray: defaultColors.neutral,
 			},
 		},
 	},
