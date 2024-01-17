@@ -1,6 +1,0 @@
-dbs:
-    - path: /data/app.production.db
-      replicas:
-          - type: s3
-            endpoint: ${REPLICA_URL}
-            bucket: micro-stack-database-backup
