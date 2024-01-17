@@ -9,8 +9,10 @@ const { comment } = Astro.props;
 ---
 
 <li class='mb-4'>
-	<blockquote class='rounded border-l-4 border-gray-300 bg-gray-100 p-4'>
-		<p class='text-gray-800'>{comment.content}</p>
+	<blockquote
+		class='rounded border-l-4 border-gray-300 bg-gray-100 p-4 dark:border-gray-700 dark:bg-gray-800'
+	>
+		<p class='text-gray-800 dark:text-white'>{comment.content}</p>
 		<footer class='mt-2'>
 			— <cite class='font-medium'>{comment.author}</cite>
 		</footer>

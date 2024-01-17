@@ -4,30 +4,34 @@
 
 <form class='mt-8' method='post'>
 	<div class='mb-4'>
-		<label for='author' class='mb-2 block text-sm font-bold text-gray-700'> Name</label>
+		<label for='author' class='mb-2 block text-sm font-bold text-gray-700 dark:text-gray-400'>
+			Name</label
+		>
 		<input
 			type='text'
 			id='author'
 			name='author'
-			class='focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none'
+			class='focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white'
 			placeholder='Your name'
 		/>
 	</div>
 
 	<div class='mb-6'>
-		<label for='content' class='mb-2 block text-sm font-bold text-gray-700'> Comment</label>
+		<label for='content' class='mb-2 block text-sm font-bold text-gray-700 dark:text-gray-400'>
+			Comment</label
+		>
 		<textarea
 			id='content'
 			name='content'
-			class='focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none'
+			class='focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white'
 			rows='4'
 			placeholder='Your comment'></textarea>
 	</div>
 
 	<div class='flex items-center justify-between'>
 		<button
+			class='default-focus default-transition rounded bg-primary-500 px-4 py-2 font-bold text-white hover:bg-primary-600'
 			type='submit'
-			class='default-focus default-transition rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700'
 		>
 			Submit
 		</button>
