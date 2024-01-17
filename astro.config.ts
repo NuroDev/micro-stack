@@ -8,7 +8,9 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
 	adapter: cloudflare({
 		runtime: {
-			bindings: {},
+			bindings: {
+				DATABASE: { type: 'd1' },
+			},
 			mode: 'local',
 			type: 'pages',
 		},
