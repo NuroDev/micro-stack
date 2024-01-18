@@ -7,6 +7,8 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
 	adapter: cloudflare({
+		imageService: 'compile',
+		mode: 'advanced',
 		runtime: {
 			bindings: {
 				DATABASE: { type: 'd1' },
