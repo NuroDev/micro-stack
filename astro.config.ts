@@ -24,7 +24,6 @@ export default defineConfig({
 				DATABASE: { type: 'd1' },
 			},
 			mode: 'local',
-			persistTo: new URL('.wrangler/state/v3/', import.meta.url).pathname,
 			type: 'pages',
 		},
 	}),
