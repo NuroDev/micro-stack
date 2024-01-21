@@ -1,4 +1,4 @@
-import { orange, neutral } from 'tailwindcss/colors';
+import { blue, neutral } from 'tailwindcss/colors';
 
 import type { Config } from 'tailwindcss';
 
@@ -11,7 +11,7 @@ export default defineConfig({
 	theme: {
 		extend: {
 			colors: {
-				primary: orange,
+				primary: blue,
 				gray: neutral,
 			},
 		},
