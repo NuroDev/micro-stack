@@ -24,5 +24,6 @@ type DrizzleD1Database<T> = import('drizzle-orm/d1').DrizzleD1Database<T>;
 declare namespace App {
 	interface Locals extends Runtime {
 		drizzle: DrizzleD1Database<Schemas>;
+		schemas: Schemas;
 	}
 }
