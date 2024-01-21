@@ -5,11 +5,11 @@ import { commentsHandler } from '~/api/comments';
 
 import type { APIRoute } from 'astro';
 
-import type { Prettify } from '~/types/utils';
+import type { BaseBindings } from '~/types/api';
 
-type Bindings = Prettify<App.Locals>;
-
-const app = new Hono<{ Bindings: Bindings }>().basePath('/api/hono/').route('/', commentsHandler);
+const app = new Hono<{ Bindings: BaseBindings }>()
+	.basePath('/api/hono/')
+	.route('/', commentsHandler);
 
 export type App = typeof app;
 

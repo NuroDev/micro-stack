@@ -1,11 +1,9 @@
 import { faker } from '@faker-js/faker/locale/en';
 import { Hono } from 'hono';
 
-import type { Prettify } from '~/types/utils';
+import type { BaseBindings } from '~/types/api';
 
-type Bindings = Prettify<App.Locals>;
-
-export const commentsHandler = new Hono<{ Bindings: Bindings }>()
+export const commentsHandler = new Hono<{ Bindings: BaseBindings }>()
 	.get('/comments', async (c) =>
 		c.json({ comments: await c.env.drizzle.query.comments.findMany() }),
 	)
