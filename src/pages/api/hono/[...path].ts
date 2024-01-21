@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { showRoutes } from 'hono/dev';
 
-import { commentsHandler } from '~/utils/hono/comments';
+import { commentsHandler } from '~/api/comments';
 
 import type { APIRoute } from 'astro';
 
