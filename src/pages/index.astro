@@ -1,16 +1,18 @@
 ---
-import { comments } from '~/database/schemas';
-import { db } from '~/database/client';
 import Comment from '~/components/Comment.astro';
 import CommentForm from '~/components/CommentForm.astro';
 import Document from '~/layouts/Document.astro';
 import Head from '~/components/Head.astro';
 
+import * as schemas from '~/database/schemas';
+
+const { drizzle: db } = Astro.locals;
+
 if (Astro.request.method === 'POST') {
 	const data = await Astro.request.formData();
 	const author = data.get('author');
 	const content = data.get('content');
-	await db.insert(comments).values({
+	await db.insert(schemas.comments).values({
 		author: author as string,
 		content: content as string,
 	});
