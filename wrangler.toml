@@ -2,11 +2,14 @@ name = "micro-stack"
 compatibility_date = "2024-01-17"
 main = "dist/_worker.js"
 
+# https://docs.astro.build/en/guides/integrations-guide/cloudflare/#config
 [[d1_databases]]
 binding = "DATABASE"
-database_id = "d0309751-05a7-420f-adcf-dc81f416670d" # Random UUID for local development only.
-migrations_table = "__drizzle_migrations"
+database_id = "DATABASE"
+database_name = "DATABASE"
 migrations_dir = "./src/database/migrations/"
+migrations_table = "__drizzle_migrations"
+preview_database_id = "DATABASE"
 
 [placement]
 mode = "smart"
