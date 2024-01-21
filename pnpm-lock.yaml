@@ -44,6 +44,9 @@ dependencies:
   hono:
     specifier: ^3.12.3
     version: 3.12.3
+  lucide-astro:
+    specifier: ^0.314.0
+    version: 0.314.0(astro@4.1.2)
   nanoid:
     specifier: ^5.0.4
     version: 5.0.4
@@ -4012,6 +4015,14 @@ packages:
     dependencies:
       es5-ext: 0.10.62
     dev: true
+
+  /lucide-astro@0.314.0(astro@4.1.2):
+    resolution: {integrity: sha512-I2xMRdLZvWvN1eNXh2kf1gFtaaoG7ywJhB5913Fv8jBA4PtHwe3tMzpPdgJzn9i9r3DhlaShdUO0eEqguGQWQA==}
+    peerDependencies:
+      astro: '>=2.7.1'
+    dependencies:
+      astro: 4.1.2(typescript@5.3.3)
+    dev: false
 
   /magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
