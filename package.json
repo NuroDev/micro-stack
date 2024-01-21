@@ -5,14 +5,12 @@
 	"scripts": {
 		"astro": "astro",
 		"build": "astro check && astro build",
+		"db:apply": "wrangler d1 migrations apply DATABASE --local",
+		"db:generate": "drizzle-kit generate:sqlite",
+		"db:list": "wrangler d1 migrations list DATABASE --local",
 		"dev": "astro dev",
 		"format": "prettier --write .",
 		"lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'",
-		"db:apply": "wrangler d1 migrations apply DATABASE",
-		"db:apply:local": "wrangler d1 migrations apply DATABASE --local",
-		"db:generate": "drizzle-kit generate:sqlite",
-		"db:list": "wrangler d1 migrations apply DATABASE",
-		"db:list:local": "wrangler d1 migrations apply DATABASE --local",
 		"preview": "astro preview",
 		"start": "wrangler pages dev ./dist"
 	},
