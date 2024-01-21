@@ -1,4 +1,5 @@
 import { text, sqliteTable, integer, primaryKey } from 'drizzle-orm/sqlite-core';
+import { nanoid } from 'nanoid';
 
 import type { AdapterAccount } from '@auth/core/adapters';
 
@@ -37,7 +38,7 @@ export const accounts = sqliteTable(
 export const comments = sqliteTable('comments', {
 	author: text('author').notNull(),
 	content: text('content').notNull(),
-	id: integer('id').primaryKey(),
+	id: text('id').notNull().primaryKey().$defaultFn(nanoid),
 });
 
 export const sessions = sqliteTable('session', {
@@ -51,7 +52,7 @@ export const sessions = sqliteTable('session', {
 export const users = sqliteTable('user', {
 	email: text('email').notNull(),
 	emailVerified: integer('emailVerified', { mode: 'timestamp_ms' }),
-	id: text('id').notNull().primaryKey(),
+	id: text('id').notNull().primaryKey().$defaultFn(nanoid),
 	image: text('image'),
 	name: text('name'),
 });
