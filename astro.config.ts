@@ -4,7 +4,11 @@ import auth from 'auth-astro';
 import node from '@astrojs/node';
 import tailwind from '@astrojs/tailwind';
 
-import { getSite } from './src/utils/site';
+function getSite(): string {
+	if (import.meta.env.DEV) return 'http://localhost:4321';
+	if (import.meta.env.SITE) return import.meta.env.SITE;
+	return 'https://example.app';
+}
 
 // https://astro.build/config
 export default defineConfig({
