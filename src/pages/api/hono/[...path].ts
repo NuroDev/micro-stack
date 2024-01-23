@@ -10,7 +10,14 @@ import type { BaseBindings } from '~/types/api';
 
 const app = new Hono<{ Bindings: BaseBindings }>()
 	.basePath('/api/hono/')
-	.use('*', secureHeaders())
+	.use(
+		'*',
+		secureHeaders({
+			contentSecurityPolicy: {
+				defaultSrc: ['self'],
+			},
+		}),
+	)
 	.route('/', commentsHandler);
 
 export type App = typeof app;
