@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { secureHeaders } from 'hono/secure-headers';
 
-import { db } from '~/database/client';
+import { commentsHandler } from '~/api/comments';
 
 import type { APIRoute } from 'astro';
 
@@ -9,8 +9,15 @@ import type { BaseBindings } from '~/types/api';
 
 const app = new Hono<{ Bindings: BaseBindings }>()
 	.basePath('/api/hono/')
-	.use('*', secureHeaders())
-	.get('/comments', async (c) => c.json({ comments: await db.query.comments.findMany() }));
+	.use(
+		'*',
+		secureHeaders({
+			contentSecurityPolicy: {
+				defaultSrc: ['self'],
+			},
+		}),
+	)
+	.route('/', commentsHandler);
 
 export type App = typeof app;
 
