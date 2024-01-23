@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { secureHeaders } from 'hono/secure-headers';
 import { showRoutes } from 'hono/dev';
 
 import { commentsHandler } from '~/api/comments';
@@ -9,6 +10,7 @@ import type { BaseBindings } from '~/types/api';
 
 const app = new Hono<{ Bindings: BaseBindings }>()
 	.basePath('/api/hono/')
+	.use('*', secureHeaders())
 	.route('/', commentsHandler);
 
 export type App = typeof app;
