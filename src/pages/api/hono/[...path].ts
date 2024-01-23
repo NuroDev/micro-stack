@@ -5,7 +5,9 @@ import { db } from '~/database/client';
 
 import type { APIRoute } from 'astro';
 
-const app = new Hono()
+import type { BaseBindings } from '~/types/api';
+
+const app = new Hono<{ Bindings: BaseBindings }>()
 	.basePath('/api/hono/')
 	.use('*', secureHeaders())
 	.get('/comments', async (c) => c.json({ comments: await db.query.comments.findMany() }));
