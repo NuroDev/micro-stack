@@ -19,13 +19,13 @@ export default defineConfig({
 	adapter: cloudflare({
 		imageService: 'compile',
 		mode: 'advanced',
-		// runtime: {
-		// 	bindings: {
-		// 		DATABASE: { type: 'd1' },
-		// 	},
-		// 	mode: 'local',
-		// 	type: 'pages',
-		// },
+		runtime: {
+			bindings: {
+				DATABASE: { type: 'd1' },
+			},
+			mode: 'local',
+			type: 'pages',
+		},
 	}),
 	integrations: [tailwind()],
 	site: getSite(),
