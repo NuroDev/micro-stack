@@ -1,10 +1,15 @@
 ---
+import { getSession } from 'auth-astro/server';
+import { Lock } from 'lucide-astro';
+
 import Comment from '~/components/Comment.astro';
 import CommentForm from '~/components/CommentForm.astro';
 import Document from '~/layouts/Document.astro';
 import Head from '~/components/Head.astro';
 
 import * as schemas from '~/database/schemas';
+
+const session = await getSession(Astro.request);
 
 const { drizzle: db } = Astro.locals;
 
@@ -25,7 +30,29 @@ const cms = await db.query.comments.findMany();
 
 <Document>
 	<main class='mx-auto my-8 max-w-2xl px-4'>
-		<h1 class='mb-6 text-2xl font-bold text-gray-900'>Comments</h1>
+		<div class='flex items-center justify-between'>
+			<h1 class='text-2xl font-bold text-gray-900 dark:text-white'>Comments</h1>
+
+			{
+				session ? (
+					<a href='/logout'>
+						<img
+							alt={`${session.user!.name}'s avatar'`}
+							class='h-8 w-8 rounded-full'
+							src={session.user!.image}
+						/>
+					</a>
+				) : (
+					<a
+						class='default-focus default-transition inline-flex items-center justify-center gap-2 rounded bg-primary-500 px-4 py-2 text-sm font-bold text-white hover:bg-primary-600'
+						href='/login'
+					>
+						<Lock class='h-4 w-4' />
+						<span>Log In</span>
+					</a>
+				)
+			}
+		</div>
 
 		<CommentForm />
 
