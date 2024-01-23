@@ -21,7 +21,7 @@
 		"@auth/drizzle-adapter": "^0.3.14",
 		"@hono/zod-validator": "^0.1.11",
 		"astro": "^4.0.8",
-		"auth-astro": "^4.1.0",
+		"auth-astro": "^4.1.1",
 		"better-sqlite3": "^9.2.2",
 		"clsx": "^2.1.0",
 		"drizzle-orm": "^0.29.2",
