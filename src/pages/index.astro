@@ -1,19 +1,17 @@
 ---
 import { comments } from '~/database/schemas';
 import { db } from '~/database/client';
+import { InsertCommentSchema } from '~/database/zod';
 import Comment from '~/components/Comment.astro';
 import CommentForm from '~/components/CommentForm.astro';
 import Document from '~/layouts/Document.astro';
 import Head from '~/components/Head.astro';
 
 if (Astro.request.method === 'POST') {
-	const data = await Astro.request.formData();
-	const author = data.get('author');
-	const content = data.get('content');
-	await db.insert(comments).values({
-		author: author as string,
-		content: content as string,
-	});
+	const formData = await Astro.request.formData();
+	const data = Object.fromEntries(formData);
+	const parsedData = InsertCommentSchema.parse(data);
+	await db.insert(comments).values(parsedData);
 }
 
 const cms = await db.query.comments.findMany();
