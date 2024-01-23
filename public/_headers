@@ -1,4 +1,4 @@
-https://micro-stack.pages.dev/*
+/(.*)
   Content-Security-Policy: default-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src 'self' cloudflareinsights.com; style-src 'self' 'unsafe-inline';
   Permissions-Policy: interest-cohort=()
   Referrer-Policy: origin-when-cross-origin
