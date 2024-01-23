@@ -17,7 +17,7 @@ CREATE TABLE `account` (
 CREATE TABLE `comments` (
 	`author` text NOT NULL,
 	`content` text NOT NULL,
-	`id` integer PRIMARY KEY NOT NULL
+	`id` text PRIMARY KEY NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE `session` (

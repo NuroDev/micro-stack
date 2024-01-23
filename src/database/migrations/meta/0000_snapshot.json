@@ -124,7 +124,7 @@
 				},
 				"id": {
 					"name": "id",
-					"type": "integer",
+					"type": "text",
 					"primaryKey": true,
 					"notNull": true,
 					"autoincrement": false
