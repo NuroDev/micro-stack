@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 
 import cloudflare from '@astrojs/cloudflare';
+import preact from '@astrojs/preact';
+import tailwind from '@astrojs/tailwind';
 
 function getSite(): string {
 	if (import.meta.env.DEV) return 'http://localhost:4321';
@@ -27,7 +28,7 @@ export default defineConfig({
 			type: 'pages',
 		},
 	}),
-	integrations: [tailwind()],
+	integrations: [preact(), tailwind()],
 	site: getSite(),
 	output: 'server',
 });
