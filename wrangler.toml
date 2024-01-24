@@ -9,7 +9,7 @@ d1_databases = [
 
 [env.production]
 d1_databases = [
-	{ binding = "DATABASE", database_id = "877cf798-b17e-4781-adb6-a17e2b77fd8d", database_name = "micro-stack-production", migrations_dir = "./src/database/migrations/", migrations_table = "__drizzle_migrations" }
+	{ binding = "DATABASE", database_id = "4e09db3e-e6f9-4d25-ba92-2ab4c95559ee", database_name = "micro-stack-production", migrations_dir = "./src/database/migrations/", migrations_table = "__drizzle_migrations" }
 ]
 
 [placement]
