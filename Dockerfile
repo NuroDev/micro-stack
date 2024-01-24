@@ -17,7 +17,7 @@ RUN corepack enable
 
 # Install Litestream
 ENV LITESTREAM_VERSION="0.3.13"
-ARG TARGETARCH
+ARG TARGETARCH=amd64
 
 RUN case "${TARGETARCH}" in \
     'amd64') \
