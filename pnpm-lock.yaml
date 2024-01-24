@@ -29,6 +29,9 @@ dependencies:
   '@hono/zod-validator':
     specifier: ^0.1.11
     version: 0.1.11(hono@3.12.3)(zod@3.22.4)
+  '@preact/signals':
+    specifier: ^1.2.2
+    version: 1.2.2(preact@10.19.3)
   astro:
     specifier: ^4.0.8
     version: 4.1.2(typescript@5.3.3)
