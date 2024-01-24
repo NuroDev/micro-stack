@@ -7,11 +7,6 @@ d1_databases = [
 	{ binding = "DATABASE", database_id = "DATABASE", database_name = "DATABASE", migrations_dir = "./src/database/migrations/", migrations_table = "__drizzle_migrations", preview_database_id = "DATABASE" }
 ]
 
-[env.preview]
-d1_databases = [
-	{ binding = "DATABASE", database_id = "a291f5ff-1a42-4037-ae81-864067e1fb15", database_name = "micro-stack-preview", migrations_dir = "./src/database/migrations/", migrations_table = "__drizzle_migrations" }
-]
-
 [env.production]
 d1_databases = [
 	{ binding = "DATABASE", database_id = "877cf798-b17e-4781-adb6-a17e2b77fd8d", database_name = "micro-stack-production", migrations_dir = "./src/database/migrations/", migrations_table = "__drizzle_migrations" }
