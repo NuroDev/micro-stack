@@ -25,9 +25,9 @@ const cms = await db.query.comments.findMany();
 
 <Document>
 	<main class='mx-auto my-8 max-w-2xl px-4'>
-		<h1 class='mb-6 text-2xl font-bold text-gray-900'>Comments</h1>
+		<h1 class='mb-6 text-2xl font-bold text-gray-900 dark:text-white'>Comments</h1>
 
-		<CommentForm />
+		<CommentForm class='my-4' />
 
 		<h2>Server-side rendered comments</h2>
 		<ul class='list-none space-y-4'>

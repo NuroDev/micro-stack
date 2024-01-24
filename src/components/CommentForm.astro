@@ -1,8 +1,13 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
+import { cn } from '~/utils/cn';
 
+interface Props extends HTMLAttributes<'form'> {}
+
+const { class: className, method = 'POST', ...rest } = Astro.props;
 ---
 
-<form class='mt-8' method='post'>
+<form class={cn('my-4', className)} method={method} {...rest}>
 	<div class='mb-4'>
 		<label for='author' class='mb-2 block text-sm font-bold text-gray-700 dark:text-gray-400'>
 			Name</label
