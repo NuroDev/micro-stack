@@ -2,8 +2,6 @@
 /// <reference types="astro/client" />
 
 interface ImportMetaEnv extends Readonly<Record<string, string>> {
-	readonly AUTH_GITHUB_CLIENT_ID: string;
-	readonly AUTH_GITHUB_CLIENT_SECRET: string;
 	readonly AUTH_SECRET: string;
 	readonly AUTH_TRUST_HOST: string;
 	readonly CF_PAGES_URL?: string;

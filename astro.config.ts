@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 
-import auth from 'auth-astro';
 import cloudflare from '@astrojs/cloudflare';
 import preact from '@astrojs/preact';
 import tailwind from '@astrojs/tailwind';
@@ -29,7 +28,7 @@ export default defineConfig({
 			type: 'pages',
 		},
 	}),
-	integrations: [auth(), preact(), tailwind()],
+	integrations: [preact(), tailwind()],
 	site: getSite(),
 	output: 'server',
 });
